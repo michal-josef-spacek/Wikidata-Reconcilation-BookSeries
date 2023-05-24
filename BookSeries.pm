@@ -21,7 +21,23 @@ sub _reconcile {
 		});
 	}
 
-	# TODO Other reconncilations like author and name and year if exist
+	# TODO Series name and publisher.
+
+	# Naive reconcilation by label name.
+	if (exists $reconcilation_rules_hr->{'name'}) {
+		my $series_name = $reconcilation_rules_hr->{'name'};
+		push @sparql, <<"END";
+SELECT DISTINCT ?item WHERE {
+  ?item p:P31 ?stmt.
+  ?stmt ps:P31 wd:Q277759;
+  wikibase:rank ?rank.
+  FILTER(?rank != wikibase:DeprecatedRank)
+  ?item (rdfs:label|skos:altLabel) ?label .
+  FILTER(LANG(?label) = "cs").
+  FILTER(STR(?label) = "$series_name")
+}
+END
+	}
 
 	return @sparql;
 }
