@@ -26,7 +26,9 @@ sub _reconcile {
 		&& exists $reconcilation_rules_hr->{'publisher'}) {
 
 		my $series_name = $reconcilation_rules_hr->{'name'};
+		$series_name =~ s/"/\\"/msg;
 		my $publisher_name = $reconcilation_rules_hr->{'publisher'};
+		$publisher_name =~ s/"/\\"/msg;
 		push @sparql, <<"END";
 SELECT DISTINCT ?item WHERE {
   ?item p:P31 ?stmt.
@@ -44,6 +46,7 @@ END
 
 	} elsif (exists $reconcilation_rules_hr->{'name'}) {
 		my $series_name = $reconcilation_rules_hr->{'name'};
+		$series_name =~ s/"/\\"/msg;
 		push @sparql, <<"END";
 SELECT DISTINCT ?item WHERE {
   ?item p:P31 ?stmt.
