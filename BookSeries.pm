@@ -38,7 +38,7 @@ SELECT DISTINCT ?item WHERE {
   ?item (rdfs:label|skos:altLabel) ?label .
   ?item wdt:P123 ?publisher.
   ?publisher (rdfs:label|skos:altLabel) ?label2 .
-  FILTER(LANG(?label) = "cs").
+  FILTER(LANG(?label) = "mul" || LANG(?label) = "cs").
   FILTER(STR(?label) = "$series_name").
   FILTER(STR(?label2) = "$publisher_name").
 }
@@ -54,7 +54,7 @@ SELECT DISTINCT ?item WHERE {
   wikibase:rank ?rank.
   FILTER(?rank != wikibase:DeprecatedRank)
   ?item (rdfs:label|skos:altLabel) ?label .
-  FILTER(LANG(?label) = "cs").
+  FILTER(LANG(?label) = "mul" || LANG(?label) = "cs").
   FILTER(STR(?label) = "$series_name")
 }
 END
