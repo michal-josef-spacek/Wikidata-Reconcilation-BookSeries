@@ -18,5 +18,6 @@ META.yml
 README
 t/Wikidata-Reconcilation-BookSeries/01-use.t
 t/Wikidata-Reconcilation-BookSeries/02-version.t
+t/Wikidata-Reconcilation-BookSeries/03-new.t
 xt/Wikidata-Reconcilation-BookSeries/01-pod_coverage.t
 xt/Wikidata-Reconcilation-BookSeries/02-pod.t
