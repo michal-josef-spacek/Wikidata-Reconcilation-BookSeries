@@ -19,7 +19,7 @@ perl_version 5.006002;
 readme_from 'BookSeries.pm';
 recursive_author_tests('xt');
 requires 'WQS::SPARQL::Query::Select' => 0;
-requires 'Wikidata::Reconcilation' => 0;
+requires 'Wikidata::Reconcilation' => 0.05;
 resources 'bugtracker' => 'https://github.com/michal-josef-spacek/Wikidata-Reconcilation-BookSeries/issues',
 resources 'homepage' => 'https://github.com/michal-josef-spacek/Wikidata-Reconcilation-BookSeries';
 resources 'repository' => 'git://github.com/michal-josef-spacek/Wikidata-Reconcilation-BookSeries';
